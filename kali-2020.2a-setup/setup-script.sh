@@ -15,6 +15,10 @@ if [[ "$EUID" -ne 0  ]]; then
 	exit
 fi
 
+# Create a bunch of standard directories
+mkdir -p /home/kali/{work,tools/{win/{scripts,binaries},lin/{scripts,binaries},webshells}}
+
+# Preliminary update
 apt update
 
 # Install and configure Syncthing as a user service in systemd
@@ -64,8 +68,10 @@ else
 	ln -s /home/kali/emacs/.emacs /home/kali/.emacs
 fi
 
+# Build out resource web server (apache that holds scripts and other useful files for quick exploit/post-exploit access during engagements)
+
 # Parting tips (must be done manually)
-echo -e "\t\t\t\tAlways remember...\n"
+echo -e "\n\t\t\tAlways remember...\n"
 echo -e "Change that password..."
 echo -e "\tChange that hostname (hosts and hostname and reboot)..."
-echo -e "\n\t\tEat your veggies."
+echo -e "\t\tEat your veggies."
