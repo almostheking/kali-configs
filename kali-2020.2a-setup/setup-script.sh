@@ -10,7 +10,7 @@ function validate_url () {
 	fi
 }
 
-if [[ "$EUID" =ne 0  ]]; then
+if [[ "$EUID" -ne 0  ]]; then
 	echo "Run as root"
 	exit
 fi
@@ -28,7 +28,7 @@ if [[ -f /etc/systemd/system/syncthing.service ]]; then
 
 else
 	
-	apt install syncthing
+	apt install -y syncthing
 
 	if `validate_url "https://raw.githubusercontent.com/syncthing/syncthing/main/etc/linux-systemd/user/syncthing.service" >/dev/null`; then
 		wget https://raw.githubusercontent.com/syncthing/syncthing/main/etc/linux-systemd/user/syncthing.service -O syncthing.service
@@ -39,5 +39,33 @@ else
 	chmod 644 syncthing.service && mv syncthing.service /etc/systemd/system/.
 
 	systemctl enable syncthing@kali.service && systemctl start syncthing@kali.service
+
+	echo "Now you should MANUALLY CONFIGURE SYNCTHING TO PORT OVER YOUR EMACS."
 fi
 
+# Install and configure emacs
+which emacs >/dev/null 2>&1
+
+if [[ $? == 0 ]]; then
+	
+	echo "Emacs is already installed."
+	
+	if [[ -f /home/kali/.emacs ]]; then
+		echo "And it looks like you already have an .emacs file setup. Taking no further action."
+	else
+		echo "But it doesn't look like your .emacs is setup correctly. Check your config."
+	fi
+else
+	apt install -y emacs
+
+	mkdir /home/kali/emacs
+
+	echo "Creating symlink for your .emacs file. IT WILL NOT WORK UNTIL YOU MANUALLY CONFIGURE FILE SHARES IN SYNCTHING!"
+	ln -s /home/kali/emacs/.emacs /home/kali/.emacs
+fi
+
+# Parting tips (must be done manually)
+echo -e "\t\t\t\tAlways remember...\n"
+echo -e "Change that password..."
+echo -e "\tChange that hostname (hosts and hostname and reboot)..."
+echo -e "\n\t\tEat your veggies."
