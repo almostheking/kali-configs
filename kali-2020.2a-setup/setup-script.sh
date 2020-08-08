@@ -18,6 +18,8 @@ fi
 # Create a bunch of standard directories
 mkdir -p /home/kali/{work,tools/{win/{scripts,binaries},lin/{scripts,binaries},webshells}}
 
+chown -R kali:kali /home/kali/work/ /home/kali/tools/
+
 # Preliminary update
 apt update
 
