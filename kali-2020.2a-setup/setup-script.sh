@@ -3,7 +3,7 @@
 # Therefore, it isn't gauranteed to work on any other version Kali Linux.
 
 
-# function to determine if wget is legit
+# function to determine if wget is legit.
 function validate_url () {
 	if [[ `wget -S --spider $1  2>&1 | grep 'HTTP/1.1 200 OK'` ]]; then 
 		echo "true"
