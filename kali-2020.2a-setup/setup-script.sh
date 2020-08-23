@@ -23,6 +23,19 @@ chown -R kali:kali /home/kali/work/ /home/kali/tools/
 # Preliminary update
 apt update
 
+# Install some GitHub scripts to be run like packages
+# 1. LinEnum.sh
+# 2. Reverse Shell Generator (rsg.py)
+# 3. Linux Smart Enumeration (lse.sh)
+
+git clone https://github.com/rebootuser/LinEnum.git /home/kali/tools/lin/scripts/LinEnum
+git clone https://github.com/mthbernardes/rsg.git /home/kali/tools/lin/scripts/rsg
+ln -s /home/kali/tools/lin/scripts/rsg/rsg /usr/local/bin
+git clone https://github.com/diego-treitos/linux-smart-enumeration.git /home/kali/tools/lin/scripts/linux-smart-enumeration
+
+# Make sure kali owns the tools
+chown -R kali:kali /home/kali/tools
+
 # Install and configure Syncthing as a user service in systemd
 if [[ -f /etc/systemd/system/syncthing.service ]]; then
 	
