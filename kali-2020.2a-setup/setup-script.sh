@@ -27,11 +27,14 @@ apt update
 # 1. LinEnum.sh
 # 2. Reverse Shell Generator (rsg.py)
 # 3. Linux Smart Enumeration (lse.sh)
+# 4. Linux Exploit Suggester 2
 
 git clone https://github.com/rebootuser/LinEnum.git /home/kali/tools/lin/scripts/LinEnum
 git clone https://github.com/mthbernardes/rsg.git /home/kali/tools/lin/scripts/rsg
 ln -s /home/kali/tools/lin/scripts/rsg/rsg /usr/local/bin
 git clone https://github.com/diego-treitos/linux-smart-enumeration.git /home/kali/tools/lin/scripts/linux-smart-enumeration
+git clone https://github.com/jondonas/linux-exploit-suggester-2.git /home/kali/tools/lin/scripts/linux-exploit-suggester-2
+ln -s /home/kali/tools/lin/scripts/linux-exploit-suggester-2/linux-exploit-suggester-2.pl /usr/local/bin
 
 # Make sure kali owns the tools
 chown -R kali:kali /home/kali/tools
