@@ -41,7 +41,7 @@ git clone https://github.com/21y4d/nmapAutomator.git /home/kali/tools/lin/script
 ln -s /home/kali/tools/lin/scripts/nmapAutomator/nmapAutomater.sh /usr/local/bin
 git clone https://github.com/Tib3rius/AutoRecon.git /home/kali/tools/lin/scripts/AutoRecon
 apt-get install -y python3-pip && pip3 install -r /home/kali/tools/lin/scripts/AutoRecon/requirements.txt
-sudo apt install -y seclists curl enum4linux gobuster nbtscan nikto nmap onesixtyone oscanner smbclient smbmap smtp-user-enum snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
+apt install -y seclists curl enum4linux gobuster nbtscan nikto nmap onesixtyone oscanner smbclient smbmap smtp-user-enum snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
 ln -s /home/kali/tools/lin/scripts/AutoRecon/src/autorecon/autorecon.py /usr/local/bin
 
 # Make sure kali owns the tools
