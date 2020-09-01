@@ -30,6 +30,7 @@ apt update
 # 4. Linux Exploit Suggester 2
 # 5. nmapAutomator
 # 6. Autorecon
+# 7. Invoke-PowerShell.ps1
 
 git clone https://github.com/rebootuser/LinEnum.git /home/kali/tools/lin/scripts/LinEnum
 git clone https://github.com/mthbernardes/rsg.git /home/kali/tools/lin/scripts/rsg
@@ -43,6 +44,8 @@ git clone https://github.com/Tib3rius/AutoRecon.git /home/kali/tools/lin/scripts
 apt-get install -y python3-pip && pip3 install -r /home/kali/tools/lin/scripts/AutoRecon/requirements.txt
 apt install -y seclists curl enum4linux gobuster nbtscan nikto nmap onesixtyone oscanner smbclient smbmap smtp-user-enum snmp sslscan sipvicious tnscmd10g whatweb wkhtmltopdf
 ln -s /home/kali/tools/lin/scripts/AutoRecon/src/autorecon/autorecon.py /usr/local/bin
+wget https://raw.githubusercontent.com/samratashok/nishang/master/Shells/Invoke-PowerShellTcp.ps1 -O /home/kali/tools/win/scripts/Invoke-PowerShellTcp.ps1
+
 
 # Make sure kali owns the tools
 chown -R kali:kali /home/kali/tools
