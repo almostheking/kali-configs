@@ -123,6 +123,15 @@ systemctl enable apache2
 # Ensure legacy SMB works correctly
 sed -i.bak '/\[global\]/a\\n   client min protocol=NT1\n   hide dot files=no\n   hide special files=no\n   hide unreadable=no\n   hide unwriteable files=no' /etc/samba/smb.conf
 
+# Setup tmux
+git clone https://github.com/almostheking/.tmux.git /home/kali/.tmux
+ln -s -f /home/kali/.tmux/.tmux.conf /home/kali/.tmux.conf
+cp /home/kali/.tmux/.tmux.conf.local /home/kali/.
+git clone https://github.com/tmux-plugins/tpm /home/kali/.tmux/plugins/tpm
+chown -R kali:kali /home/kali/.tmux/
+chown kali:kali /home/kali/.tmux.conf.local
+/home/kali/.tmux/plugins/tpm/bin/install_plugins.sh
+
 # Parting tips (must be done manually)
 echo -e "\n\t\t\tAlways remember...\n"
 echo -e "Change that password..."
