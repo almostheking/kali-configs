@@ -120,6 +120,9 @@ cp /home/kali/tools/lin/scripts/SUID3NUM/suid3num.py/var/www/html/leif/suid3num.
 systemctl start apache2
 systemctl enable apache2
 
+# Ensure legacy SMB works correctly
+sed -i.bak '/\[global\]/a\\n   client min protocol=NT1\n   hide dot files=no\n   hide special files=no\n   hide unreadable=no\n   hide unwriteable files=no' /etc/samba/smb.conf
+
 # Parting tips (must be done manually)
 echo -e "\n\t\t\tAlways remember...\n"
 echo -e "Change that password..."
